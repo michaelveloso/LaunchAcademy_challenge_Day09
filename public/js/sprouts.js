@@ -29,10 +29,7 @@ var next_page_clicked = function() {
   next_page_number++;
 };
 
-// next_page.on("click", function(event) {
-//   event.preventDefault();
-//   next_page_clicked();
-// });
+next_page.hide();
 
 doc.scroll(function (){
   console.log(doc.scrollTop());
