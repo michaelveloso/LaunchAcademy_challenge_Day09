@@ -2,6 +2,8 @@
 var next_page = $(".more-sprouts");
 var tweets_div = $(".tweets");
 var next_page_number = 2;
+var doc = $(document)
+var view = $(window)
 
 var create_tweet = function(tweetJSON){
   html_string = "";
@@ -27,7 +29,14 @@ var next_page_clicked = function() {
   next_page_number++;
 };
 
-next_page.on("click", function(event) {
-  event.preventDefault();
-  next_page_clicked();
-})
+// next_page.on("click", function(event) {
+//   event.preventDefault();
+//   next_page_clicked();
+// });
+
+doc.scroll(function (){
+  console.log(doc.scrollTop());
+  if (doc.scrollTop() === doc.height() - view.height()) {
+    next_page_clicked();
+  }
+});
